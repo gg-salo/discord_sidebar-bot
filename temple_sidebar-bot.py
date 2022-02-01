@@ -45,7 +45,6 @@ def get_data():
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-
 client = discord.Client()
 
 
@@ -55,7 +54,7 @@ async def on_ready():
     refresh_price.start()
 
 
-@tasks.loop(seconds=float(10))
+@tasks.loop(seconds=float(60))
 async def refresh_price():
     data = get_data()
     templeprice = data['templePrice']
